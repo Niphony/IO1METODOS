@@ -69,20 +69,21 @@ function resolver() {
 }
 
 function esquinaNoroeste(costos, oferta, demanda) {
-    let i = 0;
-    let j = 0;
-    let total = 0;
+    let i = 0;   //Oferta                                           //Iniciarlizar var, i ,j total, y para los pasos
+    let j = 0;    //Demanda
+    let total = 0; //total
     let pasosHTML = "";
 
-    const ofertaTemp = [...oferta];
+    const ofertaTemp = [...oferta];  //copias de las variables para usarlas en la rpta y no modificar la comparacion del original
     const demandaTemp = [...demanda];
 
-    while (i < oferta.length && j < demanda.length) {
-        const cantidad = Math.min(ofertaTemp[i], demandaTemp[j]);
+    while (i < oferta.length && j < demanda.length) {  // mientra i < longitud de la oferta y j igual con la demanda (que no se haya recorrido todo)
+        const cantidad = Math.min(ofertaTemp[i], demandaTemp[j]);  //Asigna el min entre oferta u demanda
 
-        total += cantidad * costos[i][j];
+        total += cantidad * costos[i][j]; //Calculo de la asignación
 
-        pasosHTML += `
+      //COnstruye el log de pasos
+        pasosHTML += ` 
             <div class="paso">
                 <h3>Paso ${i + j + 1}</h3>
                 <p>
@@ -98,16 +99,16 @@ function esquinaNoroeste(costos, oferta, demanda) {
             </div>
         `;
 
-        ofertaTemp[i] -= cantidad;
+        ofertaTemp[i] -= cantidad;  //resta la cantidad a las temporales
         demandaTemp[j] -= cantidad;
 
         if (ofertaTemp[i] === 0) {
-            i++;
+            i++; //si el origen se lleno sigue para abajo
         } else {
-            j++;
+            j++; //si no sigue a la derecha tipo matriz
         }
     }
-
+  //Muestra el resultado de los pasos
     pasosHTML += `
         <div class="total">
             Costo Total = ${total}
@@ -116,5 +117,5 @@ function esquinaNoroeste(costos, oferta, demanda) {
 
     document.getElementById("resultado").innerHTML = pasosHTML;
 }
-
+//inicializa la tabla de resultado
 crearTabla();
