@@ -86,11 +86,12 @@ function esquinaNoroeste(costos, oferta, demanda) {
 
       //COnstruye el log de pasos
       //
-      
-      desbalanceHTML += `  
-      <div class="desbalance">
-        <h1>Desbalance ${desbalance}</h1>
-       `;
+      //
+      // desbalanceHTML += `  
+      // <div class="desbalance">
+      //   <h1>Desbalance ${desbalance}</h1>
+      //  `;
+      //
 
         pasosHTML += ` 
             <div class="paso">
@@ -126,7 +127,7 @@ function esquinaNoroeste(costos, oferta, demanda) {
     `;
 
     document.getElementById("resultado").innerHTML = pasosHTML;
-    document.getElementById("desbalance").innerHTML = desbalanceHTML;
+    // document.getElementById("desbalance").innerHTML = desbalanceHTML;
 
 }
 //inicializa la tabla de resultado
