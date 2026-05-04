@@ -73,7 +73,6 @@ function esquinaNoroeste(costos, oferta, demanda) {
     let j = 0;    //Demanda
     let total = 0; //total
     let pasosHTML = "";
-    let desbalanceHTML = "";
 
     const ofertaTemp = [...oferta];  //copias de las variables para usarlas en la rpta y no modificar la comparacion del original
     const demandaTemp = [...demanda];
@@ -82,16 +81,7 @@ function esquinaNoroeste(costos, oferta, demanda) {
         const cantidad = Math.min(ofertaTemp[i], demandaTemp[j]);  //Asigna el min entre oferta u demanda
 
         total += cantidad * costos[i][j]; //Calculo de la asignación
-        desbalance = oferta[i] - demanda[j];
-
-      //COnstruye el log de pasos
-      //
-      //
-      // desbalanceHTML += `  
-      // <div class="desbalance">
-      //   <h1>Desbalance ${desbalance}</h1>
-      //  `;
-      //
+        desbalance = ofertaTemp - demandaTemp; //Calculo desbalance (sale mal)
 
         pasosHTML += ` 
             <div class="paso">
@@ -127,7 +117,6 @@ function esquinaNoroeste(costos, oferta, demanda) {
     `;
 
     document.getElementById("resultado").innerHTML = pasosHTML;
-    // document.getElementById("desbalance").innerHTML = desbalanceHTML;
 
 }
 //inicializa la tabla de resultado
