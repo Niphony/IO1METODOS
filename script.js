@@ -79,7 +79,7 @@ function esquinaNoroeste(costos, oferta, demanda) {
 
     while (i < oferta.length && j < demanda.length) {  // mientra i < longitud de la oferta y j igual con la demanda (que no se haya recorrido todo)
         const cantidad = Math.min(ofertaTemp[i], demandaTemp[j]);  //Asigna el min entre oferta u demanda
-        cost = costos[i] - costos[j];
+        
         total += cantidad * costos[i][j]; //Calculo de la asignación
         desbalance = ofertaTemp[i] - demandaTemp[j]; //Calculo desbalance (sale mal)
 
@@ -111,7 +111,6 @@ function esquinaNoroeste(costos, oferta, demanda) {
   //Muestra el resultado de los pasos
     pasosHTML += `
         <div class="total">
-            test = ${cost}
             Desbalance = ${desbalance}
             Costo Total = ${total}
         </div>
