@@ -126,6 +126,8 @@ function esquinaNoroeste(costos, oferta, demanda) {
     `;
 
     document.getElementById("resultado").innerHTML = pasosHTML;
+    document.getElementById("desbalance").innerHTML = desbalanceHTML;
+
 }
 //inicializa la tabla de resultado
 crearTabla();
