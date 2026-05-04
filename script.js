@@ -120,6 +120,7 @@ function esquinaNoroeste(costos, oferta, demanda) {
   //Muestra el resultado de los pasos
     pasosHTML += `
         <div class="total">
+            Desbalance = ${desbalance}
             Costo Total = ${total}
         </div>
     `;
