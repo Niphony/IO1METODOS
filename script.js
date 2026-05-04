@@ -81,7 +81,7 @@ function esquinaNoroeste(costos, oferta, demanda) {
         const cantidad = Math.min(ofertaTemp[i], demandaTemp[j]);  //Asigna el min entre oferta u demanda
 
         total += cantidad * costos[i][j]; //Calculo de la asignación
-        desbalance = ofertaTemp - demandaTemp; //Calculo desbalance (sale mal)
+        desbalance = ofertaTemp[i] - demandaTemp[j]; //Calculo desbalance (sale mal)
 
         pasosHTML += ` 
             <div class="paso">
